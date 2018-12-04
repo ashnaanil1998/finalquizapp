@@ -3,6 +3,7 @@ package com.example.ashnaanil.myapplicationmonday2;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,11 +18,11 @@ public class MainActivity extends AppCompatActivity {
 
     TextView score, question;
 
-    private Questions mQuestions = new Questions();
+    private Questions myQuestions = new Questions();
 
-    private String mAnswer;
-    private int mScore = 0;
-    private int mQuestionsLength = mQuestions.mQuestions.length;
+    private String myAnswer;
+    private int myScore = 0;
+    private int myQuestionsLength = myQuestions.myQuestions.length;
 
     Random r;
 
@@ -42,16 +43,16 @@ public class MainActivity extends AppCompatActivity {
         score = (TextView) findViewById(R.id.score);
         question = (TextView) findViewById(R.id.question);
 
-        score.setText("Score: " + mScore);
-        updateQuestion(r.nextInt(mQuestionsLength));
+        score.setText("Score: " + myScore);
+        updateQuestion(r.nextInt(myQuestionsLength));
 
         answer1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (answer1.getText() == mAnswer) {
-                    mScore++;
-                    score.setText("Score: " + mScore);
-                    updateQuestion(r.nextInt(mQuestionsLength));
+                if (answer1.getText() == myAnswer) {
+                    myScore++;
+                    score.setText("Score: " + myScore);
+                    updateQuestion(r.nextInt(myQuestionsLength));
                 } else {
                     gameOver();
                 }
@@ -62,10 +63,10 @@ public class MainActivity extends AppCompatActivity {
         answer2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (answer2.getText() == mAnswer) {
-                    mScore++;
-                    score.setText("Score: " + mScore);
-                    updateQuestion(r.nextInt(mQuestionsLength));
+                if (answer2.getText() == myAnswer) {
+                    myScore++;
+                    score.setText("Score: " + myScore);
+                    updateQuestion(r.nextInt(myQuestionsLength));
                 } else {
                     gameOver();
                 }
@@ -76,10 +77,10 @@ public class MainActivity extends AppCompatActivity {
         answer3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (answer3.getText() == mAnswer) {
-                    mScore++;
-                    score.setText("Score: " + mScore);
-                    updateQuestion(r.nextInt(mQuestionsLength));
+                if (answer3.getText() == myAnswer) {
+                    myScore++;
+                    score.setText("Score: " + myScore);
+                    updateQuestion(r.nextInt(myQuestionsLength));
                 } else {
                     gameOver();
                 }
@@ -90,10 +91,10 @@ public class MainActivity extends AppCompatActivity {
         answer4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (answer4.getText() == mAnswer) {
-                    mScore++;
-                    score.setText("Score: " + mScore);
-                    updateQuestion(r.nextInt(mQuestionsLength));
+                if (answer4.getText() == myAnswer) {
+                    myScore++;
+                    score.setText("Score: " + myScore);
+                    updateQuestion(r.nextInt(myQuestionsLength));
                 } else {
                     gameOver();
                 }
@@ -103,19 +104,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateQuestion(int number) {
-        question.setText(mQuestions.getQuestions(number));
-        answer1.setText(mQuestions.getChoice1(number));
-        answer2.setText(mQuestions.getChoice2(number));
-        answer3.setText(mQuestions.getChoice3(number));
-        answer4.setText(mQuestions.getChoice4(number));
+        question.setText(myQuestions.getQuestions(number));
+        answer1.setText(myQuestions.getChoice1(number));
+        answer2.setText(myQuestions.getChoice2(number));
+        answer3.setText(myQuestions.getChoice3(number));
+        answer4.setText(myQuestions.getChoice4(number));
 
-        mAnswer = mQuestions.getCorrectAnswer(number);
+        myAnswer = myQuestions.getCorrectAnswer(number);
     }
 
     private void gameOver() {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
         alertDialogBuilder
-                .setMessage("Game over! Your score is " + mScore + " points.")
+                .setMessage("Game over! Your score is " + myScore + " points.")
                 .setCancelable(false)
                 .setPositiveButton("New Game",
                     new DialogInterface.OnClickListener() {
@@ -133,6 +134,12 @@ public class MainActivity extends AppCompatActivity {
                     });
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
+
+        Button positiveButton = alertDialog.getButton(AlertDialog.BUTTON_POSITIVE);
+        Button negativeButton = alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE);
+
+        positiveButton.setTextColor(Color.parseColor("#FF0B8B42"));
+        negativeButton.setTextColor(Color.parseColor("#FFFF0400"));
 
 
     }
