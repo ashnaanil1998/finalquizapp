@@ -13,7 +13,7 @@ import android.widget.TextView;
 import java.util.Random;
 
 
-//https://www.youtube.com/watch?v=JA9s_Fntg_4 reference
+//https://www.youtube.com/watch?v=JA9s_Fntg_4 reference for app
 
 public class MainActivity extends AppCompatActivity {
 
