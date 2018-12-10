@@ -22,7 +22,9 @@ public class Questions {
             "A female donkey is called a what?",
             "What is the Capital city of India?",
             "Which country has the big ben",
-            "Which country was Hitler born in?"
+            "Which country was Hitler born in?",
+            "What is the Capital city of China?",
+            "Which is the biggest city in the world?"
     };
 
     private String myChoices[][] = {
@@ -45,10 +47,12 @@ public class Questions {
             {"Mule" , "Jenny" , "Donkey" , "Horse"},
             {"New Delhi", "Mumbai", "Bangalore" , "Goa"},
             {"Australia", "South Africa" , "England" , "France"},
-            {"Germany", "Poland" , "Austria", "Ukraine"}
+            {"Germany", "Poland" , "Austria", "Ukraine"},
+            {"Shanghai" , "Beijing", "Hong Kong", "Hangzhou"},
+            {"Mumbai" , "London", "Seoul", "Sao Paulo"}
     };
 
-    private String myCorrectAnswers[] = {"Russia", "Blue Whale", "Jupiter", "Audi", "Vatican City", "Chihuahua", "Pluto", "Madrid", "France", "Antarctica", "Proxima Centauri", "Mushrooms", "Egypt", "twelve", "tropical", "97%", "Jenny", "New Delhi", "England", "Austria"};
+    private String myCorrectAnswers[] = {"Russia", "Blue Whale", "Jupiter", "Audi", "Vatican City", "Chihuahua", "Pluto", "Madrid", "France", "Antarctica", "Proxima Centauri", "Mushrooms", "Egypt", "twelve", "tropical", "97%", "Jenny", "New Delhi", "England", "Austria", "Beijing", "Seoul"};
 
     public String getQuestions(int a) {
         String question = myQuestions[a];
